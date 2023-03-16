@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sommelier Tastings</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.3.1/dist/css/bootstrap.min.css"
+        integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+</head>
+
+<body>
+    <div class="container mt-3">
+    <div class="container bg-light text-dark p-4 shadow-lg border border-dark rounded">
+        <a class="btn btn-danger text-light border border-dark shadow float-right mt-4 mx-3" href="/logout">Logout</a>
+        <a class="btn btn-warning border border-dark text-dark mt-4 float-right shadow" href="/dashboard">Dashboard</a>
+        <h1 class="border border-secondary bg-dark text-white p-3 shadow-lg">Wine Profile: <span class="text-primary">{{ wine.name }}</span></h1>
+    <div class="container text-dark bg-light shadow-lg border border-dark rounded p-4 mt-3">
+        <h3>Type: <span class="text-primary">{{ wine.type }}</span></h3>
+        <h3>Age: <span class="text-primary">{{ wine.age }}</span></h3>
+        <h3>Description: <span class="text-primary">{{ wine.description }}</span></h3>
+        <h3>Sommelier: <span class="text-primary">{{ wine.sommelier.first_name }} {{ wine.sommelier.last_name }}</span></h3>
+    </div>
+</div>
+</body>
+</html>

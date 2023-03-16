@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sommelier Tastings</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.3.1/dist/css/bootstrap.min.css"
+        integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+</head>
+
+<body>
+    <div class="container mt-3">
+    <div class="container bg-light text-dark p-4 shadow-lg border border-dark rounded">
+        <a class="btn btn-danger text-light border border-dark shadow float-right mt-4 mx-3" href="/logout">Logout</a>
+        <a class="btn btn-warning border border-dark text-dark mt-4 float-right shadow" href="/dashboard">Dashboard</a>
+        <h1 class="border border-secondary bg-dark text-white p-3 shadow-lg">Edit profile of: <span class="text-primary">{{ wine.name }}</span></h1>
+        {% with messages = get_flashed_messages() %}
+        <!-- declare a variable called messages -->
+        {% if messages %}
+        <!-- check if there are any messages -->
+        {% for message in messages %}
+        <!-- loop through the messages -->
+        <p class="text-warning">{{message}}</p>
+        <!-- display each message in a paragraph tag -->
+        {% endfor %}
+        {% endif %}
+        {% endwith %}
+
+        <form action="/wine/{{wine.id}}/update" method="post" class="container text-dark bg-light shadow-lg border border-dark rounded p-4 mt-3">
+            <input type="hidden" value="{{ sommelier_id }}" name="sommelier_id">
+            <div class="mb-3">
+                <label for="name" class="form-label">Name:</label>
+                <input type="text" class="form-control" id="name" name="name" value="{{wine.name}}">
+            </div>
+            <div class="mb-3">
+                <label for="type" class="form-label">Type:</label>
+                <input type="text" class="form-control" id="type" name="type" value="{{wine.type}}">
+            </div>
+            <div class="mb-3">
+                <label for="age" class="form-label">Age:</label>
+                <input type="number" class="form-control" id="age" name="age" value="{{wine.age}}">
+            </div>
+            <div class="mb-3">
+                <label for="description" class="form-label">Palate Description:</label>
+                <input type="text" class="form-control" id="description" name="description" value="{{wine.description}}">
+            </div>
+                <button type="submit" class="btn btn-primary text-white border border-dark shadow">Update
+                    Tasting!</button>
+        </form>
+    </div>
+</div>
+</body>
+
+</html>
